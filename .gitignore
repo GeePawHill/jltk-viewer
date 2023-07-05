@@ -1,0 +1,6 @@
+target/
+build/
+**/.commit
+.jltk/jltk-monitor.jar
+.jltk/*.tmp
+.gradle/
