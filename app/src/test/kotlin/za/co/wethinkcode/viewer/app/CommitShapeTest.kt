@@ -19,7 +19,7 @@ class CommitShapeTest {
         val shape = CommitShape(commit, lastUpperRight)
         assertThat(shape.x).isEqualTo(0)
         assertThat(shape.width).isEqualTo(2)
-        assertThat(shape.height).isEqualTo(2)
+        assertThat(shape.height).isEqualTo(1)
     }
 
     @Test
@@ -30,7 +30,7 @@ class CommitShapeTest {
         val shape = CommitShape(commit, lastUpperRight)
         assertThat(shape.x).isEqualTo(5)
         assertThat(shape.width).isEqualTo(2)
-        assertThat(shape.height).isEqualTo(2)
+        assertThat(shape.height).isEqualTo(1)
     }
 
     @Test
@@ -41,7 +41,7 @@ class CommitShapeTest {
         val shape = CommitShape(commit, lastUpperRight)
         assertThat(shape.x).isEqualTo(0)
         assertThat(shape.width).isEqualTo(2)
-        assertThat(shape.height).isEqualTo(5)
+        assertThat(shape.height).isEqualTo(6)
     }
 
     @Test
@@ -54,7 +54,7 @@ class CommitShapeTest {
         val shape = CommitShape(commit, lastUpperRight)
         assertThat(shape.x).isEqualTo(0)
         assertThat(shape.width).isEqualTo(2)
-        assertThat(shape.height).isEqualTo(2)
+        assertThat(shape.height).isEqualTo(1)
     }
 
     @Test
@@ -63,10 +63,10 @@ class CommitShapeTest {
         runs.commit()
         val commit = Commit(runs[1])
         commit.add(runs[0])
-        val lastUpperRight = LogPoint(0, 0)
+        val lastUpperRight = LogPoint(0, 4)
         val shape = CommitShape(commit, lastUpperRight)
         assertThat(shape.x).isEqualTo(0)
         assertThat(shape.width).isEqualTo(2)
-        assertThat(shape.height).isEqualTo(4)
+        assertThat(shape.height).isEqualTo(5)
     }
 }
