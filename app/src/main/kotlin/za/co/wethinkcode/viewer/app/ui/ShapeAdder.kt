@@ -28,41 +28,64 @@ class ShapeAdder(val model: ViewerModel, val totalHeight: Double, val destinatio
         val bottom = totalHeight
         val top = totalHeight - (shape.height * GraphicViewer.SCALE_FACTOR)
         if (shape.commit.isEmpty()) {
-            val path = Path().apply {
-                moveTo(left, bottom)
-                lineTo(left, top)
-                lineTo(nearRight, top)
-                lineTo(farRight, top)
-                lineTo(farRight, bottom)
-                closepath()
-                fill = Color.ORCHID
-                stroke = Color.BLACK
-                tooltip {
-                    font = Font.font(20.0)
-                    text = "commit"
-                }
-                onMouseClicked = EventHandler { model.columnDetail.set(detail) }
-            }
-            destination.add(path)
+            destination.add(makeEmptyCommit(left, bottom, top, nearRight, farRight, detail))
         } else {
-            val path = Path().apply {
-                moveTo(left, bottom)
-                lineTo(left, bottom - GraphicViewer.SCALE_FACTOR)
-                lineTo(nearRight, bottom - GraphicViewer.SCALE_FACTOR)
-                lineTo(nearRight, top)
-                lineTo(farRight, top)
-                lineTo(farRight, bottom)
-                closepath()
-                fill = Color.ORCHID
-                stroke = Color.BLACK
-                tooltip {
-                    font = Font.font(20.0)
-                    text = "commit"
-                }
-                onMouseClicked = EventHandler { model.columnDetail.set(detail) }
-            }
+            val path = makeNonEmptyCommit(left, bottom, nearRight, top, farRight, detail)
             destination.add(path)
         }
+    }
+
+    private fun makeNonEmptyCommit(
+        left: Double,
+        bottom: Double,
+        nearRight: Double,
+        top: Double,
+        farRight: Double,
+        detail: ColumnDetail
+    ): Path {
+        val path = Path().apply {
+            moveTo(left, bottom)
+            lineTo(left, bottom - GraphicViewer.SCALE_FACTOR)
+            lineTo(nearRight, bottom - GraphicViewer.SCALE_FACTOR)
+            lineTo(nearRight, top)
+            lineTo(farRight, top)
+            lineTo(farRight, bottom)
+            closepath()
+            fill = Color.ORCHID
+            stroke = Color.BLACK
+            tooltip {
+                font = Font.font(20.0)
+                text = "commit"
+            }
+            onMouseClicked = EventHandler { model.columnDetail.set(detail) }
+        }
+        return path
+    }
+
+    private fun makeEmptyCommit(
+        left: Double,
+        bottom: Double,
+        top: Double,
+        nearRight: Double,
+        farRight: Double,
+        detail: ColumnDetail
+    ): Path {
+        val path = Path().apply {
+            moveTo(left, bottom)
+            lineTo(left, top)
+            lineTo(nearRight, top)
+            lineTo(farRight, top)
+            lineTo(farRight, bottom)
+            closepath()
+            fill = Color.ORCHID
+            stroke = Color.BLACK
+            tooltip {
+                font = Font.font(20.0)
+                text = "commit"
+            }
+            onMouseClicked = EventHandler { model.columnDetail.set(detail) }
+        }
+        return path
     }
 
     fun makeTest(test: TestShape, detail: ColumnDetail) {
