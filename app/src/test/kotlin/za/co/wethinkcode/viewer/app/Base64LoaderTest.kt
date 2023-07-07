@@ -10,14 +10,14 @@ class Base64LoaderTest {
     val loader = Base64Loader()
 
     @Test
-    fun `non-existent file makes one record`() {
+    fun `non-existent path makes one record`() {
         val results = loader.load(Path.of("does", "not", "exist"))
         assertThat(results.size).isEqualTo(1)
     }
 
     @Test
-    fun `not a folder makes one record`() {
-        val results = loader.load(Path.of("testData", ".wtc", "known-good.wtc"))
+    fun `path not a folder makes one record`() {
+        val results = loader.load(Path.of("testData", "notAFolder.txt"))
         assertThat(results.size).isEqualTo(1)
     }
 
