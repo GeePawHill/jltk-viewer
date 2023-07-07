@@ -44,7 +44,6 @@ class Base64Loader {
         log: Path,
         runs: MutableList<String>
     ) {
-        println(log.toString());
         val lines = Files.readAllLines(log)
         for (line in lines) {
             val decoded = decoder.decode(line).toString(Charset.forName("UTF-8"))

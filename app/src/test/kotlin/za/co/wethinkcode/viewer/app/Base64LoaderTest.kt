@@ -2,6 +2,7 @@ package za.co.wethinkcode.viewer.app
 
 import org.assertj.core.api.Assertions.assertThat
 import org.geepawhill.jltk.flow.FileHelpers.JLTK_FOLDER
+import org.geepawhill.jltk.flow.FileHelpers.JLTK_LOG_SUFFIX
 import org.junit.jupiter.api.Test
 import za.co.wethinkcode.viewer.app.parse.Base64Loader
 import java.nio.file.Path
@@ -31,7 +32,7 @@ class Base64LoaderTest {
     @Test
     fun `makes error on known-bad with no date`() {
         val runs = mutableListOf<String>()
-        loader.safeLoad(runs, Path.of("testData", ".wtc", "known-bad.wtc"))
+        loader.safeLoad(runs, Path.of("testData", JLTK_FOLDER, "known-bad${JLTK_LOG_SUFFIX}"))
         assertThat(runs.size).isEqualTo(1)
         val lines = runs[0].split("\n")
         assertThat(lines[1]).isEqualTo("type: base64")
@@ -41,7 +42,7 @@ class Base64LoaderTest {
     @Test
     fun `makes error on known-bad with valid filestamp`() {
         val runs = mutableListOf<String>()
-        loader.safeLoad(runs, Path.of("testData", ".jltk", "branch_committer_20230409125801.jltl"))
+        loader.safeLoad(runs, Path.of("testData", JLTK_FOLDER, "branch_committer_20230409125801$JLTK_LOG_SUFFIX"))
         assertThat(runs.size).isEqualTo(1)
         val lines = runs[0].split("\n")
         assertThat(lines[1]).isEqualTo("type: base64")
@@ -51,12 +52,8 @@ class Base64LoaderTest {
     @Test
     fun `parses known-good`() {
         val runs = mutableListOf<String>()
-        loader.safeLoad(runs, Path.of("testData", JLTK_FOLDER, "known-good-two-records.jltl"))
+        loader.safeLoad(runs, Path.of("testData", JLTK_FOLDER, "known-good-two-records$JLTK_LOG_SUFFIX"))
         assertThat(runs.size).isEqualTo(2)
-        println(runs[0])
-        println(runs[1])
-//        val lines = runs[0].split("\n")
-//        assertThat(lines[1]).isEqualTo("type: base64")
     }
 
 }
