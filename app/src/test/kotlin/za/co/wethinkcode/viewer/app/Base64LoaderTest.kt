@@ -23,9 +23,9 @@ class Base64LoaderTest {
     }
 
     @Test
-    fun `finds only files ending in wtc`() {
-        val results = loader.load(Path.of("testData", "twoFinalLogs", JLTK_FOLDER))
-        assertThat(results.size).isEqualTo(2)
+    fun `finds only files ending in the key suffices`() {
+        val results = loader.load(Path.of("testData", "twoFinalsOneTemp", JLTK_FOLDER))
+        assertThat(results.size).isEqualTo(3)
     }
 
     @Test
