@@ -1,6 +1,7 @@
 package za.co.wethinkcode.viewer.app
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.jltk.flow.FileHelpers.JLTK_FOLDER
 import org.junit.jupiter.api.Test
 import za.co.wethinkcode.viewer.app.parse.Base64Loader
 import java.nio.file.Path
@@ -23,8 +24,8 @@ class Base64LoaderTest {
 
     @Test
     fun `finds only files ending in wtc`() {
-        val results = loader.load(Path.of("testData", ".wtc"))
-        assertThat(results.size).isEqualTo(4)
+        val results = loader.load(Path.of("testData", "twoFinalLogs", JLTK_FOLDER))
+        assertThat(results.size).isEqualTo(2)
     }
 
     @Test

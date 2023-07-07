@@ -4,6 +4,7 @@ import javafx.scene.Parent
 import javafx.scene.control.Alert
 import javafx.scene.layout.Priority
 import javafx.stage.DirectoryChooser
+import org.geepawhill.jltk.flow.FileHelpers.JLTK_FOLDER
 import tornadofx.*
 import za.co.wethinkcode.viewer.app.ViewerModel
 import za.co.wethinkcode.viewer.app.parse.TestResult
@@ -79,7 +80,7 @@ class ColumnDetailView(val model: ViewerModel) : Fragment() {
         chooser.title = "Select Project Root"
         val result = chooser.showDialog(this.primaryStage) ?: return
         val path = result.toPath()
-        val wtcPath = path.resolve(".wtc")
+        val wtcPath = path.resolve(JLTK_FOLDER)
         if (!wtcPath.exists()) {
             val alert = Alert(Alert.AlertType.WARNING, "This folder has no .wtc subfolder.")
             alert.showAndWait()

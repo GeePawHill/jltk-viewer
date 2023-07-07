@@ -1,5 +1,7 @@
 package za.co.wethinkcode.viewer.app.parse
 
+import org.geepawhill.jltk.flow.FileHelpers.JLTK_LOG_SUFFIX
+import org.geepawhill.jltk.flow.FileHelpers.JLTK_TMP_SUFFIX
 import java.nio.charset.Charset
 import java.nio.file.Files
 import java.nio.file.Path
@@ -22,7 +24,10 @@ class Base64Loader {
         return runs
     }
 
-    private fun isWtcLog(log: Path) = log.toString().endsWith(".wtc")
+    private fun isWtcLog(log: Path): Boolean {
+        val name = log.toString();
+        return name.endsWith(JLTK_TMP_SUFFIX) || name.endsWith(JLTK_LOG_SUFFIX)
+    }
 
     fun safeLoad(
         runs: MutableList<String>,
@@ -39,6 +44,7 @@ class Base64Loader {
         log: Path,
         runs: MutableList<String>
     ) {
+        println(log.toString());
         val lines = Files.readAllLines(log)
         for (line in lines) {
             val decoded = decoder.decode(line).toString(Charset.forName("UTF-8"))

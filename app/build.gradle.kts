@@ -36,7 +36,7 @@ tasks.withType<Test> {
 dependencies {
     implementation("org.yaml:snakeyaml:2.0")
     implementation("no.tornado:tornadofx:2.0.0-SNAPSHOT")
-    implementation("org.geepawhill:jltk:0.0.46")
+    implementation("org.geepawhill:jltk:latest.release")
     testImplementation("org.assertj:assertj-core:3.23.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
