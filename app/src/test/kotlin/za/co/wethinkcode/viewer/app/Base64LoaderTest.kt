@@ -51,7 +51,7 @@ class Base64LoaderTest {
     @Test
     fun `parses known-good`() {
         val runs = mutableListOf<String>()
-        loader.safeLoad(runs, Path.of("testData", ".wtc", "known-good-two-records.wtc"))
+        loader.safeLoad(runs, Path.of("testData", JLTK_FOLDER, "known-good-two-records.jltl"))
         assertThat(runs.size).isEqualTo(2)
         println(runs[0])
         println(runs[1])
