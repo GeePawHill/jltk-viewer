@@ -13,7 +13,7 @@ class ParsedFileName(val name: String) {
     init {
         val path = Path.of(name)
         val file = path.fileName.toString()
-        val regex = Regex("(.*)_(.*)_(\\d{14}).wtc")
+        val regex = Regex("(.*)_(.*)_(\\d{14})(.*)")
         val result = regex.find(file)
         if (result == null) {
             branch = NA

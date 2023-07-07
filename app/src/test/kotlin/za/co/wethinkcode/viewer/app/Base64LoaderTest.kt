@@ -41,7 +41,7 @@ class Base64LoaderTest {
     @Test
     fun `makes error on known-bad with valid filestamp`() {
         val runs = mutableListOf<String>()
-        loader.safeLoad(runs, Path.of("testData", ".wtc", "branch_committer_20230409125801.wtc"))
+        loader.safeLoad(runs, Path.of("testData", ".jltk", "branch_committer_20230409125801.jltl"))
         assertThat(runs.size).isEqualTo(1)
         val lines = runs[0].split("\n")
         assertThat(lines[1]).isEqualTo("type: base64")
