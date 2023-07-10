@@ -25,7 +25,8 @@ javafx {
         "javafx.controls",
         "javafx.graphics",
         "javafx.fxml",
-        "javafx.web"
+        "javafx.web",
+        "javafx.swing"
     )
 }
 
@@ -40,8 +41,11 @@ dependencies {
     testImplementation("org.assertj:assertj-core:3.23.1")
     implementation("org.junit.jupiter:junit-jupiter:5.9.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.1")
+    implementation("org.slf4j:slf4j-nop:2.0.7")
+    implementation("org.slf4j:slf4j-nop:2.0.6")
 }
 
 application {
+    mainModule.set("jltk.viewer.app.main")
     mainClass.set("za.co.wethinkcode.viewer.app.ViewerMainKt")
 }

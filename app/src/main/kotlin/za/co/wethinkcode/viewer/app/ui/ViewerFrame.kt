@@ -4,7 +4,7 @@ import javafx.scene.Parent
 import tornadofx.*
 import za.co.wethinkcode.viewer.app.ViewerModel
 
-class ViewerFrame : View() {
+public class ViewerFrame : View() {
     val model = ViewerModel()
 
     override val root: Parent = borderpane {
