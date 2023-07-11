@@ -1,10 +1,11 @@
 package org.geepawhill.jltk.ui
 
 import javafx.scene.Parent
+import org.geepawhill.jltk.ViewerModel
 import tornadofx.*
 
 public class ViewerFrame : View() {
-    val model = org.geepawhill.jltk.ViewerModel()
+    val model = ViewerModel()
 
     override val root: Parent = borderpane {
         center = tabpane {

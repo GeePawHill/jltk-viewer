@@ -3,8 +3,8 @@ package org.geepawhill.jltk
 import org.assertj.core.api.Assertions.assertThat
 import org.geepawhill.jltk.flow.FileHelpers.JLTK_FOLDER
 import org.geepawhill.jltk.flow.FileHelpers.JLTK_LOG_SUFFIX
+import org.geepawhill.jltk.parse.Base64Loader
 import org.junit.jupiter.api.Test
-import za.co.wethinkcode.viewer.app.parse.Base64Loader
 import java.nio.file.Path
 
 class Base64LoaderTest {

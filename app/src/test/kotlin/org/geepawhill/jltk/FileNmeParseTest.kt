@@ -1,11 +1,11 @@
 package org.geepawhill.jltk
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.jltk.parse.ParsedFileName
+import org.geepawhill.jltk.parse.ParsedFileName.Companion.EARLIEST_FILESTAMP
+import org.geepawhill.jltk.parse.ParsedFileName.Companion.EARLIEST_TIMESTAMP
+import org.geepawhill.jltk.parse.ParsedFileName.Companion.NA
 import org.junit.jupiter.api.Test
-import za.co.wethinkcode.viewer.app.parse.ParsedFileName
-import za.co.wethinkcode.viewer.app.parse.ParsedFileName.Companion.EARLIEST_FILESTAMP
-import za.co.wethinkcode.viewer.app.parse.ParsedFileName.Companion.EARLIEST_TIMESTAMP
-import za.co.wethinkcode.viewer.app.parse.ParsedFileName.Companion.NA
 
 class FileNmeParseTest {
     @Test

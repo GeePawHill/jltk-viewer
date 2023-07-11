@@ -1,9 +1,9 @@
 package org.geepawhill.jltk
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.jltk.parse.RunType
+import org.geepawhill.jltk.parse.YamlConverter
 import org.junit.jupiter.api.Test
-import za.co.wethinkcode.viewer.app.parse.RunType
-import za.co.wethinkcode.viewer.app.parse.YamlConverter
 
 class YamlConverterTest {
     val builder = YamlConverter()

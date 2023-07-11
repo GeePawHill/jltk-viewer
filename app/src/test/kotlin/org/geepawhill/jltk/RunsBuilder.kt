@@ -1,5 +1,7 @@
-import za.co.wethinkcode.viewer.app.parse.LogDetail
-import za.co.wethinkcode.viewer.app.parse.RunType
+package org.geepawhill.jltk
+
+import org.geepawhill.jltk.parse.LogDetail
+import org.geepawhill.jltk.parse.RunType
 
 class RunsBuilder : MutableList<LogDetail> by mutableListOf() {
     var sequence = 1

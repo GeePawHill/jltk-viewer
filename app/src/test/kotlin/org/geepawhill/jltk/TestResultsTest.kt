@@ -1,11 +1,10 @@
 package org.geepawhill.jltk
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.jltk.parse.TestResult
+import org.geepawhill.jltk.parse.TestResults
+import org.geepawhill.jltk.parse.TestStatus
 import org.junit.jupiter.api.Test
-import za.co.wethinkcode.viewer.app.parse.TestResult
-import za.co.wethinkcode.viewer.app.parse.TestResults
-import za.co.wethinkcode.viewer.app.parse.TestStatus
-import za.co.wethinkcode.viewer.app.parse.TestStatus.unrun
 
 class TestResultsTest {
     val results = TestResults()
@@ -45,7 +44,7 @@ class TestResultsTest {
     fun `old tests are unrun in results after endRun`() {
         results.add("old", TestStatus.pass)
         results.endRun()
-        assertThat(results.results).containsExactly(TestResult("old", unrun, false, 0))
+        assertThat(results.results).containsExactly(TestResult("old", TestStatus.unrun, false, 0))
     }
 
 }

@@ -1,9 +1,8 @@
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.jltk.RunsBuilder
+import org.geepawhill.jltk.parse.LogCollater
+import org.geepawhill.jltk.parse.RunType
 import org.junit.jupiter.api.Test
-import za.co.wethinkcode.viewer.app.parse.LogCollater
-import za.co.wethinkcode.viewer.app.parse.RunType
-import za.co.wethinkcode.viewer.app.parse.RunType.commit
-import za.co.wethinkcode.viewer.app.parse.RunType.run
 
 class LogCollaterTest {
     val runs = RunsBuilder()
@@ -14,7 +13,7 @@ class LogCollaterTest {
         runs.commit()
         val commits = collater.collate(runs.toList())
         assertThat(commits).hasSize(1)
-        assertThat(commits[0].detail.type).isEqualTo(commit)
+        assertThat(commits[0].detail.type).isEqualTo(RunType.commit)
         assertThat(commits[0]).isEmpty()
     }
 
@@ -30,8 +29,8 @@ class LogCollaterTest {
         runs.commit()
         val result = collater.collate(runs.toList())
         assertThat(result).hasSize(1)
-        assertThat(result[0].detail.type).isEqualTo(commit)
-        assertThat(result[0][0].type).isEqualTo(run)
+        assertThat(result[0].detail.type).isEqualTo(RunType.commit)
+        assertThat(result[0][0].type).isEqualTo(RunType.run)
     }
 
     @Test
@@ -42,9 +41,9 @@ class LogCollaterTest {
         runs.commit()
         val result = collater.collate(runs.toList())
         assertThat(result).hasSize(2)
-        assertThat(result[0][0].type).isEqualTo(run)
+        assertThat(result[0][0].type).isEqualTo(RunType.run)
         assertThat(result[0][0].timestamp).isEqualTo("1")
-        assertThat(result[1][0].type).isEqualTo(run)
+        assertThat(result[1][0].type).isEqualTo(RunType.run)
     }
 
     @Test
