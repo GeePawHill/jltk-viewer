@@ -1,6 +1,6 @@
 module jltk.viewer.app.main {
-    exports za.co.wethinkcode.viewer.app.ui;
-    opens za.co.wethinkcode.viewer.app to javafx.graphics;
+    exports org.geepawhill.jltk.ui;
+    opens org.geepawhill.jltk to javafx.graphics;
     requires jltk;
     requires kotlin.stdlib;
     requires javafx.base;

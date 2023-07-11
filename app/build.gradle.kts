@@ -47,5 +47,5 @@ dependencies {
 
 application {
     mainModule.set("jltk.viewer.app.main")
-    mainClass.set("za.co.wethinkcode.viewer.app.ViewerMainKt")
+    mainClass.set("org.geepawhill.jltk.ViewerMainKt")
 }
