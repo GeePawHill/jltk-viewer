@@ -41,7 +41,7 @@ class ColumnDetailView(val model: org.geepawhill.jltk.ViewerModel) : Fragment() 
             }
             button("Dog Food") {
                 action {
-                    model.load(Path.of("..", ".wtc"))
+                    model.load(Path.of("..", JLTK_FOLDER))
                 }
             }
         }
@@ -76,16 +76,16 @@ class ColumnDetailView(val model: org.geepawhill.jltk.ViewerModel) : Fragment() 
     private fun open() {
         val chooser = DirectoryChooser()
         chooser.initialDirectory = Path.of(".").toFile()
-        chooser.title = "Select Project Root"
+        chooser.title = "Select Git Root"
         val result = chooser.showDialog(this.primaryStage) ?: return
         val path = result.toPath()
-        val wtcPath = path.resolve(JLTK_FOLDER)
-        if (!wtcPath.exists()) {
-            val alert = Alert(Alert.AlertType.WARNING, "This folder has no .wtc subfolder.")
+        val jltkPath = path.resolve(JLTK_FOLDER)
+        if (!jltkPath.exists()) {
+            val alert = Alert(Alert.AlertType.WARNING, "This folder has no $JLTK_FOLDER subfolder.")
             alert.showAndWait()
             return
         }
-        model.load(wtcPath)
+        model.load(jltkPath)
     }
 
     init {
