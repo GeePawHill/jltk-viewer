@@ -30,10 +30,6 @@ javafx {
     )
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-
 dependencies {
     implementation("org.yaml:snakeyaml:2.0")
     implementation("no.tornado:tornadofx:2.0.0-SNAPSHOT")
