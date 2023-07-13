@@ -17,14 +17,14 @@ class Base64Loader {
         if (!path.isDirectory()) return listOf(makeBase64Error(path, "File is not a folder."))
         val runs = mutableListOf<String>()
         Files.list(path).forEach { log ->
-            if (isWtcLog(log)) {
+            if (isJltkLog(log)) {
                 safeLoad(runs, log)
             }
         }
         return runs
     }
 
-    private fun isWtcLog(log: Path): Boolean {
+    private fun isJltkLog(log: Path): Boolean {
         val name = log.toString();
         return name.endsWith(JLTK_TMP_SUFFIX) || name.endsWith(JLTK_LOG_SUFFIX)
     }

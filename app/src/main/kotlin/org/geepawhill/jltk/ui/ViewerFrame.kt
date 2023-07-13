@@ -15,6 +15,9 @@ public class ViewerFrame : View() {
             tab("Tabular") {
                 this += TableViewer(model)
             }
+            tab("Raw") {
+                this += RawViewer(model)
+            }
         }
     }
 
