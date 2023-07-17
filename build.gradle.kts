@@ -2,10 +2,6 @@ repositories {
     mavenCentral()
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-
 val helper = configurations.create("helper")
 
 dependencies {

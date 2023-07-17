@@ -45,3 +45,7 @@ application {
     mainModule.set("jltk.viewer.app.main")
     mainClass.set("org.geepawhill.jltk.ViewerMainKt")
 }
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
