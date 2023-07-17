@@ -28,7 +28,7 @@ class ViewerModel {
         val shapes = ShapeDesigner().design(commits)
         logShapes.set(shapes)
         records.clear()
-        records.addAll(shapes.entries)
+        records.addAll(entries)
     }
 
     companion object {
