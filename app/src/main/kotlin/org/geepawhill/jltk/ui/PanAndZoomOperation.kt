@@ -5,7 +5,7 @@ import javafx.scene.Node
 import javafx.scene.input.MouseEvent
 import javafx.scene.transform.Scale
 
-class PanAndZoomOperation(val node: Node) {
+class PanAndZoomOperation(val node: Node, val zoomFactor: Double = 1.25) {
     var anchorX = 0.0
     var anchorY = 0.0
 
@@ -35,11 +35,11 @@ class PanAndZoomOperation(val node: Node) {
         node.onScroll = EventHandler { event ->
             val scale = Scale()
             if (event.deltaY > 0) {
-                scale.x *= 1.5
-                scale.y *= 1.5
+                scale.x *= zoomFactor
+                scale.y *= zoomFactor
             } else {
-                scale.x *= 0.66
-                scale.y *= 0.66
+                scale.x *= 1.0 / zoomFactor
+                scale.y *= 1.0 / zoomFactor
             }
             val pivot = node.screenToLocal(event.sceneX, event.sceneY)
             scale.pivotX = pivot.x
@@ -47,4 +47,5 @@ class PanAndZoomOperation(val node: Node) {
             node.transforms.add(scale)
         }
     }
+
 }
