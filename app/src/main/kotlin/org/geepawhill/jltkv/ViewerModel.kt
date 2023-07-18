@@ -10,13 +10,12 @@ import org.geepawhill.jltkv.parse.Base64Loader
 import org.geepawhill.jltkv.parse.LogCollater
 import org.geepawhill.jltkv.parse.LogDetail
 import org.geepawhill.jltkv.parse.YamlConverter
-import tornadofx.observableListOf
 import java.nio.file.Path
 
 class ViewerModel {
 
     val columnDetail = SimpleObjectProperty<ColumnDetail>()
-    val records = observableListOf<LogDetail>()
+    val records = mutableListOf<LogDetail>()
     val logShapes = SimpleObjectProperty<LogShapes>()
     val raw = SimpleStringProperty()
 
