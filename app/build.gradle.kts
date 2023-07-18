@@ -23,11 +23,14 @@ repositories {
 plugins {
     application
     kotlin("jvm") version "1.8.22"
-    id("org.openjfx.javafxplugin") version "0.0.14"
 }
 
 kotlin {
     jvmToolchain(18)
+}
+
+java {
+    version = JavaLanguageVersion.of(JavaVersion.VERSION_18.majorVersion)
 }
 
 dependencies {
