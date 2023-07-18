@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="wtc-extension-jar-with-dependencies (4)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/lib/wtc-extension-jar-with-dependencies.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

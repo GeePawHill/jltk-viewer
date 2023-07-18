@@ -1,0 +1,8 @@
+target/
+build/
+**/.commit
+.jltk/jltk-monitor.jar
+.jltk/*.jltt
+.gradle/
+# Temporary during switchov
+.wtc/
