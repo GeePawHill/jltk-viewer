@@ -23,6 +23,7 @@ repositories {
 plugins {
     application
     kotlin("jvm") version "1.8.22"
+    //   id("org.beryx.runtime") version "1.13.0"
 }
 
 kotlin {
