@@ -6,3 +6,4 @@ build/
 .gradle/
 # Temporary during switchov
 .wtc/
+output/
