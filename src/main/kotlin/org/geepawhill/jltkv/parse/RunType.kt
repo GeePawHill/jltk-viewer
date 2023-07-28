@@ -7,5 +7,5 @@ enum class RunType {
     local,  // a psuedo-commit happened, i.e. runs with no commit
     test,   // one or more tests were run
     error,  // some parsing error happened
-    unknown // well-formed, don't recognize count
+    unknown // well-formed, don't recognize type
 }
