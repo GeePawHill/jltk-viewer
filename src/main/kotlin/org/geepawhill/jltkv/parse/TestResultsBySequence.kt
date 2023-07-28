@@ -1,6 +1,6 @@
 package org.geepawhill.jltkv.parse
 
-class TestResultsBySequence : MutableSet<TestResult> by sortedSetOf(SequenceComparator()) {
+class TestResultsBySequence {
 
     private val results = sortedSetOf(SequenceComparator())
 
@@ -11,5 +11,10 @@ class TestResultsBySequence : MutableSet<TestResult> by sortedSetOf(SequenceComp
         }
     }
 
-    fun contains(name: String): Boolean = this.filter { it.name == name }.isNotEmpty()
+    fun contains(name: String): Boolean = results.filter { it.name == name }.isNotEmpty()
+
+    fun add(result: TestResult) = results.add(result)
+    fun clear() = results.clear()
+    fun toList(): List<TestResult> = results.toList()
+
 }
