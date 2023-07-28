@@ -1,7 +1,7 @@
 package org.geepawhill.jltkv.parse
 
 class TestResults() {
-    val results: List<TestResult> get() = resultsWithUnruns()
+    private val results: List<TestResult> get() = resultsWithUnruns()
 
     private val current = TestResultsBySequence()
     private val old = mutableListOf<String>()
@@ -45,4 +45,8 @@ class TestResults() {
         if (isFirstRun) return false
         return !old.contains(name)
     }
+
+    operator fun get(index: Int): TestResult = resultsWithUnruns()[index]
+
+    fun toList(): List<TestResult> = resultsWithUnruns().toList()
 }

@@ -94,8 +94,8 @@ class ShapeDesigner {
     ): LogPoint {
         results.add(detail.passes, detail.fails, detail.disables, detail.aborts)
         var y = 1
-        val resultCopy = results.results.toList().reversed()
-        for (result in results.results) {
+        val resultCopy = results.toList().reversed()
+        for (result in results.toList()) {
             paths.shapes.add(TestShape(detail, previousUpperRight.x, y, result, resultCopy))
             y += 1
         }
