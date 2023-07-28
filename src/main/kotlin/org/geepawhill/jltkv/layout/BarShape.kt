@@ -17,5 +17,6 @@ class BarShape(
     val height = Math.max(1, lastUpperRight.y)
 
     override fun add(adder: ShapeAdder) {
+        adder.makeBar(this, ColumnDetail(detail))
     }
 }

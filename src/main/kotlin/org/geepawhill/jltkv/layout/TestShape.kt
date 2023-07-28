@@ -13,6 +13,7 @@ class TestShape(
     val tests: List<TestResult>
 ) : LogShape {
     override fun add(adder: ShapeAdder) {
+        adder.makeTest(this, ColumnDetail(detail, tests))
     }
 
 }

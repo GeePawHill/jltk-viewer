@@ -13,5 +13,6 @@ class CommitShape(val commit: Commit, lastUpperRight: LogPoint) :
     val height: Int = lastUpperRight.y + 1
 
     override fun add(adder: ShapeAdder) {
+        adder.makeCommitShape(this, ColumnDetail(detail))
     }
 }

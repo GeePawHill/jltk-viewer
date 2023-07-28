@@ -1,6 +1,7 @@
 package org.geepawhill.jltkv
 
 import org.geepawhill.jltk.flow.Recorder
+import org.geepawhill.jltkv.ui.ViewerFrame
 import tornadofx.App
 import tornadofx.launch
 
