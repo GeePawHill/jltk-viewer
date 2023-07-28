@@ -1,10 +1,10 @@
 package org.geepawhill.jltkv.parse
 
-class TestResultsBySequence {
+class SequencedTestResults {
 
     private val results = sortedSetOf(SequenceComparator())
 
-    class SequenceComparator : Comparator<TestResult> {
+    private class SequenceComparator : Comparator<TestResult> {
         override fun compare(first: TestResult?, second: TestResult?): Int {
             if (first == null || second == null) return 0
             return first.sequence.compareTo(second.sequence)
@@ -16,5 +16,4 @@ class TestResultsBySequence {
     fun add(result: TestResult) = results.add(result)
     fun clear() = results.clear()
     fun toList(): List<TestResult> = results.toList()
-
 }
