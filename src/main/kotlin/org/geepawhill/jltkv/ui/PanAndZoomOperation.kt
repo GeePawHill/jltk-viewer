@@ -30,6 +30,16 @@ class PanAndZoomOperation(val node: Node, val zoomFactor: Double = 1.25) {
         node.onMouseReleased = EventHandler { }
     }
 
+    fun reset() {
+        node.layoutX = 0.0
+        node.layoutY = 0.0
+        node.translateX = 0.0
+        node.translateY = 0.0
+        anchorX = 0.0
+        anchorY = 0.0
+        node.transforms.clear()
+    }
+
     init {
         node.onMousePressed = EventHandler { event -> this.drag(event) }
         node.onScroll = EventHandler { event ->

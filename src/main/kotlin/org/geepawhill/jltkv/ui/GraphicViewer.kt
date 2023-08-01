@@ -4,13 +4,19 @@ import tornadofx.*
 
 
 class GraphicViewer(val model: org.geepawhill.jltkv.ViewerModel) : Fragment() {
+    lateinit var panAndZoomOperation: PanAndZoomOperation
     val shapes = group {
-        PanAndZoomOperation(this)
+        panAndZoomOperation = PanAndZoomOperation(this)
     }
 
     override val root = splitpane {
         pane {
             this += shapes
+            button("O") {
+                action {
+                    panAndZoomOperation.reset()
+                }
+            }
         }
         this += ColumnDetailView(model).root
     }
