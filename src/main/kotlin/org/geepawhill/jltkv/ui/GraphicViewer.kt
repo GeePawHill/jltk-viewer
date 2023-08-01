@@ -29,7 +29,6 @@ class GraphicViewer(val model: org.geepawhill.jltkv.ViewerModel) : Fragment() {
         shapes.children.clear()
         val paths = model.logShapes.value
         val totalHeight = SCALE_FACTOR * paths.height
-        val totalWidth = paths.width * SCALE_FACTOR
         val adder = ShapeAdder(model, totalHeight, shapes.children)
         for (shape in paths.shapes) shape.add(adder)
     }
