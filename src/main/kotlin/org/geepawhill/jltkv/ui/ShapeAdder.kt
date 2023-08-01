@@ -12,6 +12,7 @@ import org.geepawhill.jltkv.layout.BarShape
 import org.geepawhill.jltkv.layout.ColumnDetail
 import org.geepawhill.jltkv.layout.CommitShape
 import org.geepawhill.jltkv.layout.TestShape
+import org.geepawhill.jltkv.parse.RunType
 import org.geepawhill.jltkv.parse.TestResult
 import tornadofx.closepath
 import tornadofx.lineTo
@@ -36,8 +37,16 @@ class ShapeAdder(
         if (shape.commit.isEmpty()) {
             destination.add(makeEmptyCommit(left, bottom, top, nearRight, farRight, detail))
         } else {
-            val path = makeNonEmptyCommit(left, bottom, nearRight, top, farRight, detail)
+            val fill = chooseFillForCommit(detail.detail.type)
+            val path = makeNonEmptyCommit(left, bottom, nearRight, top, farRight, detail, fill)
             destination.add(path)
+        }
+    }
+
+    private fun chooseFillForCommit(type: RunType): Paint {
+        return when (type) {
+            RunType.local -> Color.CORAL
+            else -> Color.ORCHID
         }
     }
 
@@ -47,7 +56,8 @@ class ShapeAdder(
         nearRight: Double,
         top: Double,
         farRight: Double,
-        detail: ColumnDetail
+        detail: ColumnDetail,
+        color: Paint
     ): Path {
         val path = Path().apply {
             moveTo(left, bottom)
@@ -57,7 +67,7 @@ class ShapeAdder(
             lineTo(farRight, top)
             lineTo(farRight, bottom)
             closepath()
-            fill = Color.ORCHID
+            fill = color
             stroke = Color.BLACK
             tooltip {
                 font = Font.font(20.0)
