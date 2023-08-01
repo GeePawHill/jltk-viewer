@@ -44,6 +44,11 @@ class ColumnDetailView(val model: org.geepawhill.jltkv.ViewerModel) : Fragment()
                     model.load(Path.of("..", JLTK_FOLDER))
                 }
             }
+            button("Refresh") {
+                action {
+                    model.reload()
+                }
+            }
         }
         center = vbox {
             hbox {

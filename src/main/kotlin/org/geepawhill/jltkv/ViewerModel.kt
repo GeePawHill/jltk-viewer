@@ -21,8 +21,10 @@ class ViewerModel {
     val raw = SimpleStringProperty()
 
     val height = SimpleIntegerProperty(0)
+    var loadPath = Path.of(".")
 
     fun load(path: Path) {
+        loadPath = path
         val yamls = Base64Loader().load(path)
         raw.set(yamls.joinToString(""))
         val entries = YamlConverter().convert(yamls)
@@ -31,6 +33,10 @@ class ViewerModel {
         logShapes.set(shapes)
         records.clear()
         records.addAll(entries)
+    }
+
+    fun reload() {
+        load(loadPath)
     }
 
     companion object {
