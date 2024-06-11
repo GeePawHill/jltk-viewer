@@ -7,3 +7,4 @@ build/
 # Temporary during switchov
 .wtc/
 output/
+.idea/
