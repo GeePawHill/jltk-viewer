@@ -1,7 +1,7 @@
 package org.geepawhill.jltkv.parse
 
-import org.geepawhill.jltk.flow.FileHelpers.JLTK_LOG_SUFFIX
-import org.geepawhill.jltk.flow.FileHelpers.JLTK_TMP_SUFFIX
+import za.co.wethinkcode.flow.FileHelpers.JLTK_LOG_SUFFIX
+import za.co.wethinkcode.flow.FileHelpers.JLTK_TMP_SUFFIX
 import java.nio.charset.Charset
 import java.nio.file.Files
 import java.nio.file.Path

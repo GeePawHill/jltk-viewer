@@ -1,9 +1,9 @@
 package org.geepawhill.jltkv
 
-import org.geepawhill.jltk.flow.Recorder
 import org.geepawhill.jltkv.ui.ViewerFrame
 import tornadofx.App
 import tornadofx.launch
+import za.co.wethinkcode.flow.Recorder
 
 public class ViewerMain : App(ViewerFrame::class) {
     companion object {

@@ -4,9 +4,9 @@ import javafx.scene.Parent
 import javafx.scene.control.Alert
 import javafx.scene.layout.Priority
 import javafx.stage.DirectoryChooser
-import org.geepawhill.jltk.flow.FileHelpers.JLTK_FOLDER
 import org.geepawhill.jltkv.parse.TestResult
 import tornadofx.*
+import za.co.wethinkcode.flow.FileHelpers.JLTK_FOLDER
 import java.nio.file.Path
 import kotlin.io.path.exists
 

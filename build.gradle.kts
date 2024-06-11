@@ -56,7 +56,7 @@ javafx {
 
 dependencies {
     implementation("org.yaml:snakeyaml:2.0")
-    implementation("org.geepawhill:jltk:latest.release")
+    implementation("org.geepawhill:jltk:0.0.59")
     testImplementation("org.assertj:assertj-core:3.23.1")
     implementation("org.junit.jupiter:junit-jupiter:5.9.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.1")
